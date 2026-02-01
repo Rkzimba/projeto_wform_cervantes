@@ -25,14 +25,14 @@ namespace cadastroApp
             label1 = new Label();
             label2 = new Label();
             notifyIcon1 = new NotifyIcon(components);
-            nudNumero = new NumericUpDown();
+            txtCpf = new TextBox();
+            btnAtualizar = new Button();
             btnInserir = new Button();
             btnListar = new Button();
             dgvCadastro = new DataGridView();
             txtId = new TextBox();
             btnTestarConexao = new Button();
             btnexcluir = new Button();
-            ((System.ComponentModel.ISupportInitialize)nudNumero).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCadastro).BeginInit();
             SuspendLayout();
             // 
@@ -58,9 +58,9 @@ namespace cadastroApp
             label2.AutoSize = true;
             label2.Location = new Point(61, 97);
             label2.Name = "label2";
-            label2.Size = new Size(49, 15);
+            label2.Size = new Size(36, 15);
             label2.TabIndex = 2;
-            label2.Text = "número";
+            label2.Text = "cpf";
             label2.Click += label2_Click;
             // 
             // notifyIcon1
@@ -68,14 +68,14 @@ namespace cadastroApp
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
             // 
-            // nudNumero
+            // txtCpf
             // 
-            nudNumero.Location = new Point(116, 97);
-            nudNumero.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            nudNumero.Name = "nudNumero";
-            nudNumero.Size = new Size(608, 23);
-            nudNumero.TabIndex = 3;
-            nudNumero.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            txtCpf.Location = new Point(116, 97);
+            txtCpf.MaxLength = 11;
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(608, 23);
+            txtCpf.TabIndex = 3;
+            txtCpf.KeyPress += txtCpf_KeyPress;
             // 
             // btnInserir
             // 
@@ -120,25 +120,35 @@ namespace cadastroApp
             txtId.Visible = false;
             txtId.TextChanged += txtId_TextChanged;
             // 
+            // btnAtualizar
+            // 
+            btnAtualizar.Location = new Point(234, 173);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(75, 23);
+            btnAtualizar.TabIndex = 11;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
+            // 
+            // btnexcluir
+            // 
+            btnexcluir.Location = new Point(318, 173);
+            btnexcluir.Name = "btnexcluir";
+            btnexcluir.Size = new Size(75, 23);
+            btnexcluir.TabIndex = 9;
+            btnexcluir.Text = "Excluir";
+            btnexcluir.UseVisualStyleBackColor = true;
+            btnexcluir.Click += btnexcluir_Click;
+            // 
             // btnTestarConexao
             // 
-            btnTestarConexao.Location = new Point(234, 173);
+            btnTestarConexao.Location = new Point(402, 173);
             btnTestarConexao.Name = "btnTestarConexao";
             btnTestarConexao.Size = new Size(110, 23);
             btnTestarConexao.TabIndex = 10;
             btnTestarConexao.Text = "Testar conexão";
             btnTestarConexao.UseVisualStyleBackColor = true;
             btnTestarConexao.Click += btnTestarConexao_Click;
-            // 
-            // btnexcluir
-            // 
-            btnexcluir.Location = new Point(355, 173);
-            btnexcluir.Name = "btnexcluir";
-            btnexcluir.Size = new Size(75, 23);
-            btnexcluir.TabIndex = 9;
-            btnexcluir.Text = "excluir";
-            btnexcluir.UseVisualStyleBackColor = true;
-            btnexcluir.Click += btnexcluir_Click;
             // 
             // FormPrincipal
             // 
@@ -151,13 +161,13 @@ namespace cadastroApp
             Controls.Add(dgvCadastro);
             Controls.Add(btnListar);
             Controls.Add(btnInserir);
-            Controls.Add(nudNumero);
+            Controls.Add(btnAtualizar);
+            Controls.Add(txtCpf);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtnome);
             Name = "FormPrincipal";
             Text = "FormPrincipal";
-            ((System.ComponentModel.ISupportInitialize)nudNumero).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvCadastro).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -169,12 +179,13 @@ namespace cadastroApp
         private Label label1;
         private Label label2;
         private NotifyIcon notifyIcon1;
-        private NumericUpDown nudNumero;
+        private TextBox txtCpf;
         private Button btnInserir;
         private Button btnListar;
         private DataGridView dgvCadastro;
         private TextBox txtId;
         private Button btnTestarConexao;
         private Button btnexcluir;
+        private Button btnAtualizar;
     }
 }

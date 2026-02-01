@@ -1,15 +1,19 @@
+CREATE DATABASE sistema;
+
+connect to sistema;
+
 CREATE TABLE IF NOT EXISTS public.cadastro (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
     nome text NOT NULL,
-    numero integer NOT NULL,
+    cpf bigint NOT NULL,
     CONSTRAINT cadastro_pkey PRIMARY KEY (id),
-    CONSTRAINT cadastro_numero_check CHECK (numero > 0),
-    CONSTRAINT cadastro_numero_key UNIQUE (numero)
+    CONSTRAINT cadastro_cpf_check CHECK (cpf > 0),
+    CONSTRAINT cadastro_cpf_key UNIQUE (cpf)
 );
 
 ALTER TABLE public.cadastro OWNER TO postgres;
 
-COMMENT ON TABLE public.cadastro IS 'Cadastro com campo texto (nome) e campo numérico (numero).';
+COMMENT ON TABLE public.cadastro IS 'Cadastro com campo texto (nome) e campo numérico (cpf).';
 
 CREATE TABLE IF NOT EXISTS public.operacoes (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
